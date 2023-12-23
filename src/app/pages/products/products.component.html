@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
+    @for (item of products; track item.id) {
+    <div class="col">
+      <div class="card mx-auto">
+        <img src="{{ item.image }}" width="60%" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{item.title}}</h5>
+          <p class="card-text">
+           {{item.description.substring(1,100)}}
+          </p>
+          <h3 class="card-text fw-bold ">
+            {{item.price | currency:'EUR'}}
+           </h3>
+        </div>
+        <a class="btn btn-primary" [routerLink]="['/products', item.id]">Detalles</a>
+      </div>
+    </div>
+    }
+  </div>
+  
+</div>
